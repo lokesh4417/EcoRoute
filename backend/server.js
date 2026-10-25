@@ -1,5 +1,6 @@
 
 require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -16,18 +17,23 @@ app.use(cors());
 app.use(express.json());
 app.use(logger);
 
-app.use("/api/routes", routeRoutes);
-
-app.get("/", (req, res) => {
-    res.send("EcoRoute Express Server is Running");
-});
-
+// Connect to MongoDB only once per running instance.
 let databaseReady;
 
 async function connectDatabase() {
+    if (mongoose.connection.readyState === 1) {
+        return;
+    }
+
     if (!databaseReady) {
         databaseReady = (async () => {
-            await mongoose.connect(process.env.MONGO_URI);
+            if (!process.env.MONGO_URI) {
+                throw new Error("MONGO_URI environment variable is missing");
+            }
+
+            await mongoose.connect(process.env.MONGO_URI, {
+                serverSelectionTimeoutMS: 10000
+            });
 
             console.log("MongoDB connected successfully");
 
@@ -42,6 +48,8 @@ async function connectDatabase() {
                         mode: route.mode
                     }))
                 );
+
+                console.log("Sample routes inserted successfully");
             }
         })().catch((error) => {
             databaseReady = null;
@@ -52,16 +60,27 @@ async function connectDatabase() {
     return databaseReady;
 }
 
+// Ensure the database is ready before any API route runs.
 app.use(async (req, res, next) => {
     try {
         await connectDatabase();
         next();
     } catch (error) {
         console.error("Database connection failed:", error.message);
-        res.status(500).json({ error: "Database connection failed" });
+
+        res.status(503).json({
+            message: "Database connection failed. Please try again later."
+        });
     }
 });
 
+app.get("/", (req, res) => {
+    res.send("EcoRoute Express Server is Running");
+});
+
+app.use("/api/routes", routeRoutes);
+
+// Start a local server only when running this file directly.
 if (require.main === module) {
     connectDatabase()
         .then(() => {
