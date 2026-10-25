@@ -26,6 +26,6 @@ jobs:
         working-directory: backend
         run: npm install
 
-            - name: Verify backend package
+      - name: Verify backend package
         working-directory: backend
         run: node -e "require('./package.json'); console.log('Backend package is valid')"
