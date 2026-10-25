@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -21,37 +22,57 @@ app.get("/", (req, res) => {
     res.send("EcoRoute Express Server is Running");
 });
 
-async function startServer() {
-    try {
-        await mongoose.connect(process.env.MONGO_URI);
+let databaseReady;
 
-        console.log("MongoDB connected successfully");
+async function connectDatabase() {
+    if (!databaseReady) {
+        databaseReady = (async () => {
+            await mongoose.connect(process.env.MONGO_URI);
 
-        const count = await Route.countDocuments();
+            console.log("MongoDB connected successfully");
 
-        if (count === 0) {
-            const routesToInsert = sampleRoutes.map((route) => ({
-                from: route.from,
-                to: route.to,
-                distance: route.distance,
-                mode: route.mode
-            }));
+            const count = await Route.countDocuments();
 
-            await Route.insertMany(routesToInsert);
-
-            console.log("Sample routes inserted successfully");
-        } else {
-            console.log(`Existing routes found: ${count}`);
-        }
-
-        app.listen(PORT, () => {
-            console.log(
-                `EcoRoute server running at http://localhost:${PORT}`
-            );
+            if (count === 0) {
+                await Route.insertMany(
+                    sampleRoutes.map((route) => ({
+                        from: route.from,
+                        to: route.to,
+                        distance: route.distance,
+                        mode: route.mode
+                    }))
+                );
+            }
+        })().catch((error) => {
+            databaseReady = null;
+            throw error;
         });
-    } catch (error) {
-        console.error("Server startup failed:", error.message);
     }
+
+    return databaseReady;
 }
 
-startServer();
+app.use(async (req, res, next) => {
+    try {
+        await connectDatabase();
+        next();
+    } catch (error) {
+        console.error("Database connection failed:", error.message);
+        res.status(500).json({ error: "Database connection failed" });
+    }
+});
+
+if (require.main === module) {
+    connectDatabase()
+        .then(() => {
+            app.listen(PORT, () => {
+                console.log(`EcoRoute server running on port ${PORT}`);
+            });
+        })
+        .catch((error) => {
+            console.error("Server startup failed:", error.message);
+            process.exit(1);
+        });
+}
+
+module.exports = app;
