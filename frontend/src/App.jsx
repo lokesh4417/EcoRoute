@@ -19,7 +19,7 @@ function App() {
       setLoading(true);
       setServerError(false);
 
-      const response = await fetch("http://localhost:3000/api/routes");
+      const response = await fetch("https://eco-route-kappa.vercel.app/api/routes");
 
       if (!response.ok) {
         throw new Error("Failed to load routes");
