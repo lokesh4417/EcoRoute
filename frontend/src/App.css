@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #effbf4;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Header */
+
+.header {
+  background: #176b45;
+  color: white;
+  padding: 22px;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.leaf {
+  font-size: 45px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.logo p {
+  margin: 2px 0 0;
+  font-size: 18px;
+}
+
+/* Main */
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.route-box {
+  width: 780px;
+  background: white;
+  padding: 45px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs */
+
+.route-box label {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.route-box label:first-child {
+  margin-top: 0;
+}
+
+.route-box input {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  border: 1px solid #c9d2df;
+  border-radius: 9px;
+  background: #edf3fc;
+  outline: none;
+}
+
+.route-box input:focus {
+  border: 2px solid #18a84b;
+}
+
+/* Buttons */
+
+.find-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  border: none;
+  border-radius: 9px;
+  background: #16a34a;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.find-button:hover {
+  background: #12853d;
+}
+
+.all-button {
+  display: block;
+  margin: 35px auto 25px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 9px;
+  background: #176b45;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.all-button:hover {
+  background: #0f5134;
+}
+
+/* Messages */
+
+.message {
+  text-align: center;
+  font-size: 20px;
+  margin: 30px 0;
+}
+
+/* Server Error */
+
+.server-error {
+  margin-top: 30px;
+  padding: 45px 20px;
+  background: #effbf4;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.warning {
+  font-size: 45px;
+}
+
+.server-error h2 {
+  color: #176b45;
+  margin: 15px 0 10px;
+}
+
+.server-error p {
+  color: #55708c;
+  font-size: 18px;
+}
+
+.retry-button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 7px;
+  background: #176b45;
+  color: white;
+  cursor: pointer;
+}
+
+/* Route cards */
+
+.routes-container {
+  margin-top: 30px;
+}
+
+.route-card {
+  padding: 22px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  background: #effbf4;
+  border-left: 5px solid #16a34a;
+}
+
+.route-card h3 {
+  color: #176b45;
+  margin-top: 0;
+}
+
+.route-card p {
+  font-size: 16px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .route-box {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .logo h1 {
+    font-size: 30px;
+  }
+
+  .logo p {
+    font-size: 14px;
+  }
+}

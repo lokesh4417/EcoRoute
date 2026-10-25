@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eco Route - Sustainable Route Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>🌱</span>
+            <h2>Eco Route</h2>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#planner">Route Planner</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </header>
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="tagline">
+                TRAVEL SMART. TRAVEL GREEN.
+            </p>
+
+            <h1>
+                Find a Route That
+                <span>Respects the Planet.</span>
+            </h1>
+
+            <p>
+                Plan your journey using sustainable transportation
+                options and compare distance, travel mode and CO₂
+                emissions.
+            </p>
+
+            <a href="#planner" class="hero-button">
+                Plan Your Route
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="planner" id="planner">
+
+        <div class="section-heading">
+
+            <p>SMART ROUTE PLANNING</p>
+
+            <h2>
+                Plan Your Sustainable Journey
+            </h2>
+
+            <span>
+                Enter your starting point and destination to discover
+                available eco-friendly routes.
+            </span>
+
+        </div>
+
+
+        <div class="planner-container">
+
+            <form id="routeForm">
+
+                <div class="input-group">
+
+                    <label for="from">
+                        Starting Point
+                    </label>
+
+                    <input
+                        type="text"
+                        id="from"
+                        placeholder="Example: College"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="to">
+                        Destination
+                    </label>
+
+                    <input
+                        type="text"
+                        id="to"
+                        placeholder="Example: Railway Station"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    Find Sustainable Routes
+                </button>
+
+            </form>
+            <div class="all-routes-section">
+                <button id="viewAllRoutes">View All Routes</button>
+                <div id="allRoutesTable"></div>
+            </div>
+
+            <div id="result">
+
+                <div class="empty-result">
+
+                    <div>🌍</div>
+
+                    <h3>Your route results will appear here</h3>
+
+                    <p>
+                        Enter your starting point and destination
+                        above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <div class="section-heading">
+
+            <p>WHY ECO ROUTE?</p>
+
+            <h2>Make Every Journey Greener</h2>
+
+        </div>
+
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🌱
+                </div>
+
+                <h3>Lower Emissions</h3>
+
+                <p>
+                    Compare transportation options based on
+                    estimated CO₂ emissions.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🚲
+                </div>
+
+                <h3>Eco-Friendly Travel</h3>
+
+                <p>
+                    Discover walking, cycling and public
+                    transportation options.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📍
+                </div>
+
+                <h3>Smart Routes</h3>
+
+                <p>
+                    Compare available routes using distance
+                    and transportation mode.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="about" id="about">
+
+        <div>
+
+            <p>ABOUT ECO ROUTE</p>
+
+            <h2>
+                Sustainable Transportation
+                Starts With Better Choices.
+            </h2>
+
+            <p>
+                Eco Route is a sustainable route planning system
+                designed to help users compare different
+                transportation options based on distance,
+                transportation mode and estimated CO₂ emissions.
+            </p>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <h3>🌱 Eco Route</h3>
+
+        <p>
+            Sustainable Route Planner
+        </p>
+
+        <p>
+            © 2026 Eco Route
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0fdf4;
+    color: #17201a;
+}
+
+
+/* Navbar */
+
+.navbar {
+    height: 70px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #dcfce7;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo span {
+    font-size: 28px;
+}
+
+.logo h2 {
+    color: #166534;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background: linear-gradient(
+        135deg,
+        #f0fdf4,
+        #dcfce7
+    );
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.tagline {
+    color: #16a34a;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #14532d;
+}
+
+.hero h1 span {
+    display: block;
+    color: #16a34a;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4b5563;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 25px;
+    background: #16a34a;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+
+/* Planner */
+
+.planner {
+    padding: 90px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.section-heading > p {
+    color: #16a34a;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    color: #14532d;
+    margin-bottom: 15px;
+}
+
+.section-heading span {
+    color: #6b7280;
+}
+
+
+/* Planner container */
+
+.planner-container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+#routeForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 20px;
+    align-items: end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    padding: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #16a34a;
+}
+
+#routeForm button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #16a34a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Results */
+
+#result {
+    margin-top: 35px;
+}
+
+.empty-result {
+    text-align: center;
+    padding: 35px;
+    background: #f0fdf4;
+    border-radius: 10px;
+}
+
+.empty-result div {
+    font-size: 40px;
+}
+
+.empty-result h3 {
+    margin: 10px 0;
+    color: #166534;
+}
+
+.empty-result p {
+    color: #6b7280;
+}
+
+
+/* Route cards */
+
+.result-heading {
+    color: #166534;
+    margin-bottom: 20px;
+}
+
+.route-card {
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    background: #fafffb;
+}
+
+.route-card h3 {
+    color: #166534;
+    margin-bottom: 15px;
+}
+
+.route-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.route-info div {
+    padding: 12px;
+    background: white;
+    border-radius: 7px;
+}
+
+.route-info span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.route-info strong {
+    color: #14532d;
+}
+
+
+/* Features */
+
+.features {
+    padding: 90px 8%;
+    background: white;
+}
+
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.feature-card {
+    padding: 30px;
+    border: 1px solid #dcfce7;
+    border-radius: 12px;
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #166534;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+
+/* About */
+
+.about {
+    padding: 90px 8%;
+    background: #dcfce7;
+}
+
+.about div {
+    max-width: 800px;
+    margin: auto;
+}
+
+.about p:first-child {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.about h2 {
+    font-size: 40px;
+    color: #14532d;
+    margin: 15px 0;
+}
+
+.about p:last-child {
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 40px 8%;
+    background: #14532d;
+    color: white;
+    text-align: center;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    #routeForm {
+        grid-template-columns: 1fr;
+    }
+
+    .route-info {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .planner,
+    .features,
+    .about {
+        padding: 60px 5%;
+    }
+
+    .planner-container {
+        padding: 20px;
+    }
+
+}
+
+.all-routes-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#viewAllRoutes {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 7px;
+    background: #166534;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#allRoutesTable {
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+#allRoutesTable h3 {
+    color: #166534;
+    margin-bottom: 15px;
+}
+
+.routes-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.routes-table th {
+    background: #166534;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+.routes-table td {
+    padding: 14px;
+    border-bottom: 1px solid #dcfce7;
+    text-align: left;
+}
+
+.routes-table tr:nth-child(even) {
+    background: #f0fdf4;
+}
+
+.routes-table tr:hover {
+    background: #dcfce7;
+}
